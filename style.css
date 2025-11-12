@@ -361,10 +361,11 @@ section {
   header .navigation.active {
     z-index: 999;
     position: fixed;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
     top: 0;
     right: 0;
-    width: 380px;
+    width: 300px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -403,13 +404,16 @@ section {
   }
 
   .menu-btn.active {
-    z-index: 999;
     background-image: url(Image/close.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 25px;
-    transition: 0.3px ease;
     filter: invert(1);
+    transition: 0.3s ease;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
   }
 
   section {
