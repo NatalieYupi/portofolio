@@ -7,6 +7,7 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   width: 100%;
   height: auto;
@@ -20,7 +21,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 15px 200px;
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,7 +30,7 @@ header {
 
 header.sticky {
   background-color: #3a6cf4;
-  padding: 10px 200px;
+  padding: 10px 20px;
 }
 
 header .brand {
@@ -61,7 +62,7 @@ header .sticky .navigation a:hover {
 }
 
 section {
-  padding: 100px 200px;
+  padding: 100px 5%; /* BERUBAH DARI 200px */
 }
 
 .main {
@@ -345,6 +346,9 @@ section {
   margin-right: 30px;
 }
 
+/* ================== MEDIA QUERIES ================== */
+
+/* --- Untuk Tablet Landscape (Mengurus Navigasi) --- */
 @media (max-width: 1040px) {
   header {
     padding: 12px 20px;
@@ -361,11 +365,11 @@ section {
   header .navigation.active {
     z-index: 999;
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(6px);
+    background: rgba(255, 255, 255, 0.8); /* semi-transparan */
+    backdrop-filter: blur(10px); /* efek kaca buram */
     top: 0;
     right: 0;
-    width: 300px;
+    width: 100%; /* biar full lebar layar */
     height: 100%;
     display: flex;
     justify-content: center;
@@ -397,8 +401,8 @@ section {
     background-repeat: no-repeat;
     width: 40px;
     height: 40px;
-    right: 0;
-    margin: 0 20px;
+    right: 20px;
+    margin: 0;
     cursor: pointer;
     transition: 0.3s ease;
   }
@@ -410,28 +414,38 @@ section {
     background-size: 25px;
     filter: invert(1);
     transition: 0.3s ease;
-    position: fixed;
-    top: 20px;
+    position: absolute;
+    top: 0;
     right: 20px;
-    z-index: 1001;
+    z-index: 1001; /* tombol tetap di atas menu agar bisa diklik */
   }
 
   section {
     padding: 80px 20px;
   }
+}
 
+/* --- Untuk Tablet Portrait & Smartphone (Mengurus Layout & Font) --- */
+/* --- Untuk Tablet Portrait & Smartphone (Mengurus Layout & Font) --- */
+@media (max-width: 768px) {
+  /* Aturan Font */
   .main .content h2 {
-    font-size: 1em;
+    font-size: 1.5em;
+  }
+
+  .main .content h2 span {
+    font-size: 2rem; /* BARU: Dikecilkan dari 2.8rem */
   }
 
   .animated-text h3 {
-    font-size: 2.2em;
+    font-size: 2em; /* BARU: Dikecilkan dari 2.2em agar muat */
   }
 
   .section-title {
     font-size: 1.8em;
   }
 
+  /* Aturan Layout (About) */
   .about .content {
     flex-direction: column;
   }
@@ -445,8 +459,7 @@ section {
     margin-top: 40px;
   }
 
-  /*Skills*/
-
+  /* Aturan Layout (Skills) */
   .skills .content {
     flex-direction: column;
   }
